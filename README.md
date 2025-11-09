@@ -100,7 +100,7 @@ blog-application/
 └── index.php             # Entry point
 ```
 
-## 🎯 Usage
+## Usage
 
 ### Creating a Blog Post
 
@@ -139,7 +139,7 @@ After setup, you can create an account or use demo credentials if provided in yo
 
 *Add screenshots of your application here*
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
