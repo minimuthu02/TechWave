@@ -1,172 +1,204 @@
-# TechWave Blog Application
+TechWave Blog Application
 
-A modern, feature-rich blog platform built with PHP, MySQL, and vanilla JavaScript. TechWave offers a beautiful user interface with markdown support, category management, and social features.
+A modern, dynamic blogging platform built with PHP, MySQL, and Vanilla JavaScript.
+TechWave offers a smooth, dark-themed interface, a Markdown-powered editor, and essential social features — all designed to give users a seamless writing and reading experience.
 
-## Features
+Features
 
--  **Modern Dark UI** - Beautiful, responsive design with smooth animations
--  **Markdown Editor** - Write posts using Markdown with live preview
--  **Category System** - Organize content by topics
--  **Comments** - Engage with readers
--  **Like System** - Show appreciation for posts
--  **Image Uploads** - Featured images for blog posts
--  **User Authentication** - Secure login and registration
--  **Fully Responsive** - Works on all devices
--  **Personal Dashboard** - Manage your posts easily
+Modern Dark UI – Sleek, responsive, and mobile-friendly design
 
-##  Tech Stack
+Markdown Editor – Write blog posts using Markdown with live preview
 
-- **Backend**: PHP 7.4+
-- **Database**: MySQL 5.7+
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Editor**: SimpleMDE (Markdown)
-- **Server**: Apache with mod_rewrite
+Category Management – Organize posts into different topics
 
-##  Installation
+Comment System – Readers can engage and interact
 
-### Prerequisites
-- PHP 7.4 or higher
-- MySQL 5.7 or higher
-- Apache/Nginx web server
-- Web browser
+Like Functionality – Show appreciation for great content
 
-### Setup Steps
+Image Uploads – Add featured images to posts
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/techwave-blog.git
-   cd techwave-blog
-   ```
+User Authentication – Secure login and registration system
 
-2. **Create database**
-   ```sql
-   CREATE DATABASE techwave_blog;
-   ```
+Fully Responsive – Works on desktops, tablets, and phones
 
-3. **Import database schema**
-   ```bash
-   mysql -u root -p techwave_blog < database/schema.sql
-   ```
+Personal Dashboard – Manage and edit your posts easily
 
-4. **Configure environment**
-   ```bash
-   cp .env.example .env
-   nano .env
-   ```
-   
-   Update with your credentials:
-   ```env
-   DB_HOST=localhost
-   DB_NAME=techwave_blog
-   DB_USER=your_username
-   DB_PASS=your_password
-   ```
+Tech Stack
+Layer	Technology
+Backend	PHP 7.4+
+Database	MySQL 5.7+
+Frontend	HTML5, CSS3, Vanilla JavaScript
+Editor	SimpleMDE (Markdown Editor)
+Server	Apache (with mod_rewrite enabled)
+Installation Guide
+1️.Requirements
 
-5. **Set permissions**
-   ```bash
-   chmod 755 uploads/
-   chmod 644 .env
-   ```
+PHP 7.4 or higher
 
-6. **Configure web server**
-   
-   Point your web server to the project directory. For Apache, ensure `mod_rewrite` is enabled:
-   ```bash
-   sudo a2enmod rewrite
-   sudo systemctl restart apache2
-   ```
+MySQL 5.7 or higher
 
-7. **Access the application**
-   ```
-   http://localhost/blog-application
-   ```
+Apache or Nginx Web Server
 
-##  Project Structure
+Any modern browser
 
-```
+2️.Setup Steps
+Clone the Repository
+git clone https://github.com/YOUR_USERNAME/techwave-blog.git
+cd techwave-blog
+
+Create the Database
+
+Login to phpMyAdmin (or use MySQL CLI) and run:
+
+CREATE DATABASE techwave_blog;
+
+Import Schema
+mysql -u root -p techwave_blog < database/schema.sql
+
+Configure Environment
+
+Copy and edit the environment file:
+
+cp .env.example .env
+
+
+Update with your credentials:
+
+DB_HOST=host_name
+DB_NAME=techwave_blog
+DB_USER=your_username
+DB_PASS=your_password
+APP_ENV=production
+
+Set Permissions
+chmod 755 uploads/
+chmod 644 .env
+
+Configure Apache (for local setup)
+
+Enable mod_rewrite and restart Apache:
+
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+
+
+Add .htaccess to enable clean URLs:
+
+RewriteEngine On
+RewriteBase /blog-application/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+Project Structure
 blog-application/
-├── api/                    # API endpoints
-├── assets/                # Static assets (CSS, JS, images)
-├── auth/                  # Authentication
-├── blog/                  # Blog functionality
-├── config/                # Configuration files
-├── database/              # Database schema
-├── includes/              # Reusable components
-├── pages/                 # Application pages
-├── uploads/               # User-uploaded images
-├── .env.example          # Environment template
-├── .gitignore            # Git ignore rules
-├── .htaccess             # Apache configuration
-└── index.php             # Entry point
-```
+│
+├── api/             # API endpoints
+├── assets/          # Static files (CSS, JS, images)
+├── auth/            # Login, Register, Logout
+├── blog/            # Blog CRUD and display
+├── config/          # Configuration files
+├── database/        # SQL schema and migrations
+├── includes/        # Reusable PHP components
+├── pages/           # Frontend pages
+├── uploads/         # User-uploaded images
+│
+├── .htaccess        # URL rewriting rules
+└── index.php        # Entry point
 
-## Usage
+Usage
+Create Your First Blog Post
 
-### Creating a Blog Post
+Register or log in to your account
 
-1. Register/Login to your account
-2. Navigate to Dashboard
-3. Click "Create New Blog"
-4. Choose a category
-5. Write your content in Markdown
-6. Upload a featured image (optional)
-7. Click "Publish"
+Open the Dashboard
 
-### Markdown Support
+Click Create New Blog
 
-The editor supports full Markdown syntax:
-- **Bold** and *italic* text
-- Headers (H1-H6)
-- Lists (ordered and unordered)
-- Links and images
-- Code blocks
-- Blockquotes
+Write your post using Markdown
 
-## Security Features
+Add a featured image (optional)
 
-- Password hashing with bcrypt
-- SQL injection protection (prepared statements)
-- XSS prevention (input sanitization)
-- CSRF protection
-- File upload validation
-- Session security
+Click Publish 
 
-## Demo Account
+Markdown Features
 
-After setup, you can create an account or use demo credentials if provided in your schema.
+Bold and italic text
 
-## Screenshots
+Inline code and code blocks
 
-*Add screenshots of your application here*
+Headings (H1–H6)
 
-## Contributing
+Ordered and unordered lists
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Links and embedded images
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Blockquotes and horizontal rules
 
-## License
+Security Highlights
 
-This project is open source and available under the [MIT License](LICENSE).
+Password hashing (bcrypt)
 
-## Author
+SQL Injection protection (Prepared Statements)
 
-**Your Name**
-- GitHub: [@minimuthu02](https://github.com/minimuthu02)
+XSS filtering and sanitization
 
-## Acknowledgments
+CSRF protection for form submissions
 
-- SimpleMDE for the Markdown editor
-- Marked.js for Markdown parsing
-- Font Awesome for icons (if used)
+Secure session handling
 
-## Support
+File upload validation
 
-For support, email tmmst2@gmail.com or open an issue in the repository.
+Deployment (InfinityFree)
+
+If you host on InfinityFree:
+
+Upload all files to the /htdocs/blog-application/ directory
+
+Update .env with your InfinityFree credentials:
+
+DB_HOST=sqlXXX.infinityfree.com
+DB_NAME=epiz_XXXXXXX_techwave
+DB_USER=epiz_XXXXXXX
+DB_PASS=yourpassword
+
+
+Make sure your uploads/ folder has write permission (755)
+
+Access your app at:
+
+https://yourusername.infinityfreeapp.com/blog-application/
+
+Author
+
+Minimuthu Thennakoon
+Email: tmmst2@gmail.com
+
+GitHub: @minimuthu02
+
+License
+
+This project is licensed under the MIT License.
+You are free to use, modify, and distribute it with attribution.
+
+Acknowledgments
+
+SimpleMDE
+ – Markdown Editor
+
+Marked.js
+ – Markdown Parser
+
+Font Awesome
+ – Icons
+
+Support
+
+If you encounter issues, please:
+
+Email tmmst2@gmail.com
+
+Or open an issue on GitHub
 
 ---
 
